@@ -9,9 +9,9 @@ Date: 11/23/2019
   1. home page -> index.html
 
 ## Features
-  - Loads Trending gifs
   - Search form
-  - Click on single gif to open and close
+  - Click to view large gif
+  - Pagination
 
 ## Resources:
   - HTML

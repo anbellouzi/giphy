@@ -1,8 +1,7 @@
-
-
 // giphy API key
 const apiKey = 'BLYcLJA9Uc2SlY1iloQhooj9P85PTqzs'
 
+// attributes
 const container = document.getElementById('container')
 const resultsEl = document.getElementById('results')
 const searchForm = document.getElementById('searchForm')
@@ -14,8 +13,8 @@ const show_gif_image = document.getElementById('show_image')
 const next_button = document.getElementById('button_next')
 const back_button = document.getElementById('button_back')
 
-var queryTerm = "Trending"
-var imageSize = "medium"
+var queryTerm = ""
+var imageSize = "large"
 var page = 0
 var pageIndex = 10
 var gifLimit = 10
@@ -39,9 +38,28 @@ back_button.addEventListener('click', function(e) {
   search(queryTerm)
 })
 
-// search button clicked
+// search input changed
 searchForm.addEventListener('change', function(e) {
   e.preventDefault()
+  getSearch()
+});
+
+// search button clicked
+searchForm.addEventListener('submit', function(e) {
+  e.preventDefault()
+  getSearch()
+})
+
+// image size changed
+searchSize.addEventListener('change', function(e) {
+  // e.preventDefault()
+  imageSize = searchSize.value
+  changeToSize(imageSize)
+
+});
+
+// prepare search
+function getSearch() {
   queryTerm = searchInput.value
   imageSize = searchSize.value
   if(queryTerm != "") {
@@ -51,37 +69,17 @@ searchForm.addEventListener('change', function(e) {
 
       search(queryTerm, imageSize, pageIndex)
   }
-});
-
-// size changed
-searchSize.addEventListener('change', function(e) {
-  // e.preventDefault()
-  imageSize = searchSize.value
-  changeToSize(imageSize)
-
-});
-
-// gif item onclick
-function showGif(id) {
-  const caption = document.getElementById('caption')
-  caption.innerHTML = document.getElementById(id).text
-  show_gif_image.src = id
-  show_gif_box.classList.remove("display_off");
-  show_gif_box.classList.add("display_on");
-  container.classList.add("fade");
-}
-
-// x close icon
-function closeGif() {
-  show_gif_image.src = ""
-  container.classList.remove("fade");
-  show_gif_box.classList.remove("display_on");
-  show_gif_box.classList.add("display_off");
 }
 
 // Begining search function
 function search(q) {
-  const path = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=${gifLimit}&offset=${page}`
+  var path = ''
+  if (q.toLowerCase() == "trending") {
+    path = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${gifLimit}&offset=${page}`
+  }
+  else {
+    path = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${q}&limit=${gifLimit}&offset=${page}`
+  }
   fetch(path).then(function(res) {
     return res.json()
   }).then(function(json) {
@@ -103,9 +101,10 @@ function createGif(obj) {
   var url = null
   var width = null
   var height = null
+  const title = obj.title
+  const largeImg = obj.images.downsized_large.url
 
-  const largeImg = obj.images.downsized_still.url
-  // console.log(obj)
+  // console.log(obj.images)
 
   if (imageSize == "small") {
     url = obj.images.fixed_height_small.url
@@ -118,11 +117,11 @@ function createGif(obj) {
     height = obj.images.fixed_width.height
   }
   else {
-    url = obj.images.fixed_height_still.url
-    width = obj.images.fixed_height_still.width
-    height = obj.images.fixed_height_still.height
+    url = obj.images.downsized.url
+    width = obj.images.downsized.width
+    height = obj.images.downsized.height
   }
-  const title = obj.title
+
   resultsHTML += `<a class="gif_anchor w3-animate-zoom" href="#" id="${largeImg}" onclick="showGif(this.id)">
                     <img
                     class="item w3-animate-zoom"
@@ -137,6 +136,7 @@ function createGif(obj) {
   return resultsHTML
 }
 
+// adjust image size to small, medium or large
 function changeToSize(size) {
   if (size == 'small') {
     container.classList.remove('medium')
@@ -167,5 +167,23 @@ function changeToSize(size) {
   }
 }
 
+// gif item onclick
+function showGif(id) {
+  const caption = document.getElementById('caption')
+  caption.innerHTML = document.getElementById(id).text
+  show_gif_image.src = id
+  show_gif_box.classList.remove("display_off");
+  show_gif_box.classList.add("display_on");
+  container.classList.add("fade");
+}
+
+// x close icon
+function closeGif() {
+  show_gif_image.src = ""
+  container.classList.remove("fade");
+  show_gif_box.classList.remove("display_on");
+  show_gif_box.classList.add("display_off");
+}
+
 // End search function
-search("Trending", "large")
+search("trending")
