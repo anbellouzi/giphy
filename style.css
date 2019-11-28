@@ -25,7 +25,7 @@ input, button {
 
 .show_gif {
   position: absolute;
-  top: 10%;
+  top: 5%;
   width: 100%;
   margin: auto;
   display: flex;
@@ -51,6 +51,14 @@ input, button {
   text-decoration: none;
   color: white;
 }
+#caption {
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  padding: 0 10px 0 10px;
+  background-color: rgba(80, 80, 80, 0.2);
+  margin: 0 auto;
+}
 
 .display_off {
   visibility: hidden;
@@ -60,5 +68,11 @@ input, button {
 }
 
 .fade {
-  opacity: 0.2
+  display: none;
+}
+
+.gif_anchor {
+  line-height: 0;
+  font-size: 0.5em;
+  color: transparent;
 }

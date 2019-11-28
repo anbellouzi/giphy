@@ -20,6 +20,8 @@ searchForm.addEventListener('submit', function(e) {
 
 // gif item clicked
 function showGif(id) {
+  const caption = document.getElementById('caption')
+  caption.innerHTML = document.getElementById(id).text
   show_gif_image.src = id
   show_gif_box.classList.remove("display_off");
   show_gif_box.classList.add("display_on");
@@ -43,22 +45,8 @@ function search(q) {
     let resultsHTML = ""
 
     json.data.forEach(function(obj) {
-      const largeImg = obj.images.downsized_still.url
-      console.log(largeImg)
-      const url = obj.images.fixed_width.url
-      const width = obj.images.fixed_width.width
-      const height = obj.images.fixed_width.height
-      const title = obj.title
-      resultsHTML += `<a href="#" id="${largeImg}" onclick="showGif(this.id)">
-                        <img
-                        class="item"
-                        src="${url}"
-                        width="${width}"
-                        height="${height}"
-                        alt="${title}">
-                      </a>`
+      resultsHTML += createGif(obj)
     })
-
     resultsEl.innerHTML = resultsHTML
 
   }).catch(function(err) {
@@ -66,6 +54,27 @@ function search(q) {
   })
 }
 
+// create a gif html here
+function createGif(obj) {
+  let resultsHTML = ""
+  const largeImg = obj.images.downsized_still.url
+  console.log(largeImg)
+  const url = obj.images.fixed_width.url
+  const width = obj.images.fixed_width.width
+  const height = obj.images.fixed_width.height
+  const title = obj.title
+  resultsHTML += `<a class="gif_anchor" href="#" id="${largeImg}" onclick="showGif(this.id)">
+                    <img
+                    class="item"
+                    src="${url}"
+                    width="${width}"
+                    height="${height}"
+                    alt="${title}">
+                    ${title}
+                  </a>`
+
+  return resultsHTML
+}
 
 // End search function
-search("cars")
+search("Trending")
