@@ -1,9 +1,7 @@
 ### Autor: Anas Bellouzi
 Date: 11/23/2019
 
-# Project: Giphy
-
-### Instruction: [link to live version!](https://anbellouzi.github.io/giphy/)
+# Project: Giphy ### [link to live version!](https://anbellouzi.github.io/giphy/)
 
 ## Pages;
   1. home page -> index.html
