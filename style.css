@@ -1,0 +1,24 @@
+.container {
+  width: calc(200px * 4 + 3em);
+  margin: 5px auto;
+  text-align: center;
+  padding: 5px;
+  /* background-color: rgba(120, 120, 120, 0.1); */
+}
+
+.results {
+  columns: 4;
+  column-gap: 1em;
+
+}
+
+.item {
+  margin-bottom: 1em;
+}
+form {
+  margin-top: 5px;
+}
+input, button {
+  padding: 5px;
+  border-radius: 5px;
+}
