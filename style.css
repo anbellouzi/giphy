@@ -22,3 +22,43 @@ input, button {
   padding: 5px;
   border-radius: 5px;
 }
+
+.show_gif {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* padding: 20px; */
+  /* background-color: rgba(80, 80, 80, 0.2); */
+}
+#show_image {
+  width: 50%;
+  height: auto;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 1px;
+  background-color: rgba(80, 80, 80, 0.2);
+}
+
+.show_gif > a {
+  position: relative;
+  top: 15px;
+  right: 30px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.display_off {
+  visibility: hidden;
+}
+.display_on {
+  visibility: visible;
+}
+
+.fade {
+  opacity: 0.2
+}

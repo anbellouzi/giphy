@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" id="container">
     <header>
       <form id="searchForm" action="">
         <input id="searchInput" type="text" placeholder="search">
@@ -17,9 +17,12 @@
     </header>
     <div id="results" class="results">
       <!-- gif images here -->
-
-
     </div>
+  </div>
+
+  <div class="show_gif display_off" id="show_gif">
+    <img id="show_image" src="https://media1.giphy.com/media/3oxRmD9a5pLTOOLigM/200w.gif?cid=9b2a7a06497ce98225244abfd437ac8eb7111718ee3f3822&rid=200w.gif" alt="">
+    <a href="#" onclick="closeGif()"> X </a>
   </div>
 
 
