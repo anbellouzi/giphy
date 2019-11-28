@@ -13,7 +13,7 @@ const show_gif_image = document.getElementById('show_image')
 const next_button = document.getElementById('button_next')
 const back_button = document.getElementById('button_back')
 
-var queryTerm = ""
+var queryTerm = "trending"
 var imageSize = "large"
 var page = 0
 var pageIndex = 10
