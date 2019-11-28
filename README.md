@@ -17,4 +17,4 @@ Date: 11/23/2019
   - CSS
 
 ## Credit:
-  1. Tutorial: https://github.com/Make-School-Courses/FEW-1.1-Web-Foundations/blob/master/assignments/assignment-07.md
+  1. [Tutorial:](https://github.com/Make-School-Courses/FEW-1.1-Web-Foundations/blob/master/assignments/assignment-07.md)
