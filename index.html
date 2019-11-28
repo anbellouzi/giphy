@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Giphtasy</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +12,13 @@
   <div class="container" id="container">
     <header>
       <form id="searchForm" action="">
-        <input id="searchInput" type="text" placeholder="search">
+        <input id="searchInput" type="text" placeholder="search" value="trending">
+        <select id="searchSize">
+          <option value="medium">Size</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
         <button type="submit" name="button">Search</button>
       </form>
     </header>
@@ -24,6 +31,11 @@
     <img id="show_image" src="" alt="">
     <a href="#" onclick="closeGif()"> X </a>
     <p id="caption"></p>
+  </div>
+
+  <div class="container-page">
+    <a id="button_back" href="#"><</a>
+    <a id="button_next" href="#">></a>
   </div>
 
 

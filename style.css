@@ -1,26 +1,76 @@
+body {
+  background-color: white;
+}
 .container {
+  text-align: center;
+  padding: 0 5px 0 5px;
+  background-color: rgba(200,180,160,0.2);
+}
+
+.container-page {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.container-page a {
+  border-radius: 200px;
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px;
+  background-color: rgba(200,180,160,0.2);
+}
+.container-page a:hover {
+  background-color: rgba(160,180,200,0.2);
+  color: red;
+}
+
+
+.small {
+  width: calc(100px * 5 + 3em);
+  margin: 5px auto;
+}
+.medium {
   width: calc(200px * 4 + 3em);
   margin: 5px auto;
-  text-align: center;
-  padding: 5px;
-  /* background-color: rgba(120, 120, 120, 0.1); */
+}
+.large {
+  width: calc(300px * 3 + 3em);
+  margin: 5px auto;
 }
 
 .results {
-  columns: 4;
   column-gap: 1em;
+}
 
+.column-small {
+  columns: 5;
+}
+.column-medium {
+  columns: 4;
+}
+.column-large {
+  columns: 3;
 }
 
 .item {
   margin-bottom: 1em;
 }
 form {
-  margin-top: 5px;
+  margin-top: 0;
+  background-color: rgba(200,180,160,0.2);
 }
-input, button {
-  padding: 5px;
+input, button, select {
+  height: 35px;
+  padding: 5px 10px 5px 10px;
   border-radius: 5px;
+  margin: 5px;
+}
+input {
+  width: 60%;
+  padding: 4px 10px 8px 10px;
 }
 
 .show_gif {
@@ -37,27 +87,39 @@ input, button {
 #show_image {
   width: 50%;
   height: auto;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid grey;
   border-radius: 1px;
-  background-color: rgba(80, 80, 80, 0.2);
+  background-color: rgba(80, 80, 80, 0.3);
 }
 
 .show_gif > a {
   position: relative;
-  top: 15px;
-  right: 30px;
+  top: 10px;
+  right: 40px;
   font-size: 20px;
   text-decoration: none;
   color: white;
+  background-color: rgba(80, 80, 80, 0.2);
+  height:30px;
+  width: 30px;
+  text-align: center;
 }
 #caption {
   position: absolute;
-  bottom: 20px;
+  top: 10%;
   color: white;
   padding: 0 10px 0 10px;
   background-color: rgba(80, 80, 80, 0.2);
   margin: 0 auto;
+  max-width: 200px;
+  overflow: hidden;
+  box-sizing: content-box;
+  text-align: center;
+  font-size:16px;
+  line-height:24px;
+  font-family: Helvetica, sans-serif;
+  max-lines: 3;
 }
 
 .display_off {
@@ -68,7 +130,8 @@ input, button {
 }
 
 .fade {
-  display: none;
+  /* display:; */
+  opacity: 0.3;
 }
 
 .gif_anchor {
